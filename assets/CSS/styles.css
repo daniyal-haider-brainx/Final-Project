@@ -886,6 +886,7 @@ li.header-list.text-center.active {
   border: none;
   background: none;
   opacity: 1;
+  outline: none;
 }
 
 /*------------------------------------Cart Icon---------------------------------- */
@@ -981,7 +982,7 @@ li.header-list.text-center.active {
   color: var(--label);
 }
 
-.form-check-label {
+.form-container-label {
   font-weight: lighter;
 }
 
@@ -1496,7 +1497,7 @@ input[type="checkbox"] {
     order: 2;
   }
 
-  .check {
+  .checkout-heading-container {
     order: 1;
   }
 
@@ -1535,7 +1536,7 @@ input[type="checkbox"] {
     padding-left: 0;
   }
 
-  .check {
+  .checkout-heading-container {
     display: flex;
     flex-direction: column;
     padding-left: 12.5px;
@@ -1618,7 +1619,7 @@ input[type="checkbox"] {
     order: 2;
   }
 
-  .check {
+  .checkout-heading-container {
     order: 1;
   }
 
@@ -1690,7 +1691,7 @@ input[type="checkbox"] {
     padding-left: 10px;
   }
 
-  .w-50.pr-3.check {
+  .w-50.pr-3.checkout-heading-container {
     font-size: 14px;
 
   }
