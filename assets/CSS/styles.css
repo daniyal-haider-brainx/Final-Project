@@ -40,12 +40,13 @@
 /*--------------------------------------Steps Container-------------------------------------- */
 .steps_container {
   margin: 0;
-  border: 1px solid var(--step-border);
+  border-top: 1px solid var(--step-border);
+  border-bottom: 1px solid var(--step-border);
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  pointer-events: none;
 }
 
 .steps_container:hover {
@@ -55,6 +56,84 @@
 li.header-list.text-center.active {
   color: blue;
 }
+
+a:hover,
+a:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+#accordion .panel {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin-bottom: -5px;
+}
+
+#accordion .panel-heading {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+#accordion .panel-title a {
+  display: block;
+  padding: 15px 70px 15px 20px;
+  background: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: black;
+
+}
+
+
+#accordion .panel-title a:before,
+#accordion .panel-title a:after {
+  content: "";
+  width: 3px;
+  height: 10px;
+  background: var(--alert-color);
+  font-size: 15px;
+  position: absolute;
+  right: 35px;
+  transform: rotate(-45deg);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+#accordion .panel-title a:after {
+  right: 29px;
+  transform: rotate(45deg);
+}
+
+#accordion .panel-title a.collapsed:before {
+  transform: rotate(45deg);
+  background: var(--alert-color);
+}
+
+#accordion .panel-title a.collapsed:after {
+  transform: rotate(-45deg);
+  background: var(--alert-color);
+}
+
+#accordion .panel-body {
+  padding: 10px 20px;
+  font-weight: lighter;
+  border-top: none;
+  font-size: 15px;
+  color: black;
+
+}
+
+/* Add this rule to make the title red when collapsed, otherwise black */
+#accordion .panel-title a {
+  color: var(--alert-color);
+}
+
+#accordion .panel-title a.collapsed {
+  color: black;
+}
+
 
 .step-app>.step-content {
   background-color: var(--bg-color);
@@ -74,6 +153,8 @@ li.header-list.text-center.active {
   padding-left: 0 !important;
   padding-right: 0 !important;
   top: 0;
+  border-right: none;
+  border-left: none;
   padding-bottom: 30px;
   background-color: white;
   /* Setting a high z-index to ensure the header is on top of other elements */
@@ -163,6 +244,21 @@ li.header-list.text-center.active {
 
 
 .button_delivery {
+  background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%);
+  border: none;
+  width: 200px;
+  color: var(--container-bg);
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: none;
+}
+
+.button_submit {
   background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%);
   border: none;
   width: 200px;
@@ -435,86 +531,10 @@ li.header-list.text-center.active {
   background-color: var(--step-border);
 
 }
-
-
-/*--------------------------------------Accordion Container------------------------------------ */
-.accordion-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--container-bg);
-
-  margin-bottom: 100px;
-}
-
-/*--------------------------------------Accordion Items------------------------------------- */
-.accordion-item {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 0;
-}
-
-.accordion-item .card {
-  border: none;
-  border-radius: 0;
-  overflow: hidden;
-  background: var(--bg-color);
-  width: 900px;
-}
-
 .special-card .custom-card-body {
   background-color: var(--textblack);
   color: var(--container-bg);
 }
-
-/*-------------------------------------- Accordion Header ------------------------------------- */
-.accordion-item .card-header {
-  background-color: white;
-  border-bottom: none;
-  cursor: pointer;
-  padding: 10px;
-  position: relative;
-  color: var(--textblack);
-  text-decoration: none;
-  transition: transform 0.2s ease;
-}
-
-/*-------------------------------------- Accordion Items Events ------------------------------------- */
-.accordion-item .card-header:hover {
-  transform: translateX(10px);
-}
-
-.accordion-item.collapsed .card-header::after {
-  transform: rotate(-45deg);
-}
-
-.accordion-item .card-header.clicked .btn {
-  color: red;
-}
-
-.accordion-item .card-header.clicked::after {
-  transform: rotate(225deg);
-}
-
-/*-------------------------------------- Accordion Item Content ------------------------------------- */
-.accordion-item .card-header::after {
-  content: "";
-  border: solid var(--alert-color);
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(-45deg);
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%) rotate(45deg);
-  transition: transform 0.2s ease;
-}
-
-.accordion-item.collapsed .card-header::after {
-  transform: translateY(-50%) rotate(-135deg);
-}
-
 .special-card {
   position: relative;
 }
@@ -526,32 +546,6 @@ li.header-list.text-center.active {
   background-color: rgba(0, 0, 0, 0.7);
   color: var(--container-bg);
   padding: 5px;
-}
-
-/*--------------------------------------Accordion Items Body------------------------------------- */
-.accordion-item .card-body {
-  padding: 10px;
-  color: var(--textblack);
-  font-weight: lighter;
-}
-
-.accordion-item:not(:last-child) .card-header {
-  border-bottom: 1px solid var(--delivery-border);
-}
-
-.btn:not(:disabled):not(.disabled) {
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--textblack);
-  font-weight: bold;
-}
-
-.accordion-item.active .card-header {
-  background-color: #F9F9F9;
-}
-
-.accordion-item.active .card-header::after {
-  transform: translateY(-50%) rotate(180deg);
 }
 
 /*----------------------------------------------------Section 3-------------------------------------------------- */
@@ -567,13 +561,11 @@ li.header-list.text-center.active {
 
   margin: 0;
 }
-
 .checkout_heading {
   font-weight: bold;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-
 /*-------------------------------------Meals Layout---------------------------------- */
 .meal_cards_layout {
   display: flex;
@@ -600,9 +592,7 @@ li.header-list.text-center.active {
 .custom-card-img {
   object-fit: cover;
   max-width: 100%;
-
 }
-
 .custom-card-price {
   display: none;
 }
@@ -677,9 +667,7 @@ li.header-list.text-center.active {
   top: 106px;
   bottom: 0;
   right: 0;
-
 }
-
 /*--------------------------------------Cart Footer------------------------------------ */
 
 .cartfooter {
@@ -688,7 +676,7 @@ li.header-list.text-center.active {
   width: 435px;
   padding: 20px;
   background-color: #fff;
-  border: 1px solid var(--border-color);
+  border-top: 1px solid #EDEDED;
   border-radius: 15px;
   word-wrap: break-word;
 }
@@ -737,7 +725,6 @@ li.header-list.text-center.active {
   width: max-content;
   align-items: center;
   border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .special-cart-item .selected-meal-img {
@@ -849,6 +836,7 @@ li.header-list.text-center.active {
 .cart-item-title {
   font-size: 16px;
   font-weight: bold;
+
   margin-bottom: 5px;
 }
 
@@ -1181,7 +1169,7 @@ input[type="checkbox"] {
 
 #totalMeals {
   position: absolute;
-  top: 29%;
+  top: 31%;
   right: 67px;
   transform: translateY(-50%);
   background: none;
@@ -1330,7 +1318,9 @@ input[type="checkbox"] {
   display: flex;
   justify-content: center;
 }
-
+.panel-default{
+  color:#000;
+}
 /*--------------------------------------Media Queries Section 1------------------------------------- */
 @media (max-width: 767px) {
 
@@ -1384,6 +1374,7 @@ input[type="checkbox"] {
 /*--------------------------------------Media Queries Section 2------------------------------------ */
 @media only screen and (max-width: 600px) {
 
+ 
   .accordion-item .card {
     width: 370px;
   }
@@ -1455,6 +1446,12 @@ input[type="checkbox"] {
 
   }
 
+  .scrollcart {
+    overflow-y: scroll;
+    max-height: 500px;
+
+  }
+
   .cart-item-title {
     font-size: 9px;
   }
@@ -1492,7 +1489,7 @@ input[type="checkbox"] {
 
   .scrollcart {
     overflow-y: scroll;
-    max-height: 300px;
+    max-height: 500px;
 
   }
 
@@ -1539,6 +1536,25 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 500px) {
+  .headingcheckout {
+    font-size: 28px;
+    font-family: "Roboto-Bold";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    top:3px;
+  }
+  #accordion .panel-title a {
+    display: block;
+    padding: 15px 70px 15px 20px;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: black;
+  
+  }
   .container.sectionContainer {
     display: flex;
     flex-direction: column;
@@ -1635,10 +1651,7 @@ input[type="checkbox"] {
     padding-right: 10px;
     padding-top: 10px;
   }
-  .headingcheckout {
-    font-size: 35px;
-    padding: 10px;
-  }
+
   .deliverytext {
     padding: 10px;
     border: 2px solid #ccc;
@@ -1890,7 +1903,7 @@ input[type="checkbox"] {
     width: 108px;
     height: 50px;
     top: 17px;
-    right: 20px;
+    right: 12px;
   }
 
   .cartfooter {
