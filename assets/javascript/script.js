@@ -1,6 +1,13 @@
 // Wait for the HTML content to be loaded before executing the following code
 document.addEventListener('DOMContentLoaded', function () {
-
+  const cartIcon=document.querySelector(".cartfooter");
+  cartIcon.addEventListener("click",cartDrawer);
+ 
+ function cartDrawer(){
+   console.log("i am clicked")
+ const cart=document.querySelector(".cart_column")
+ cart.classList.toggle("open-drawer");
+ }
     // Get all the meal cards
     const mealCards = document.querySelectorAll('.cardmeals');
 
@@ -19,33 +26,41 @@ document.addEventListener('DOMContentLoaded', function () {
         card.addEventListener('click', handleClick);
     });
 
-    // Function to toggle the selection and style of delivery dates
     function toggleSelection() {
-        // Remove 'selected' class and reset border style for all dates
-        const allDates = document.querySelectorAll('.delivery-dates li');
-        allDates.forEach(date => {
-            date.classList.remove('selected');
-            date.style.borderLeft = '1px solid #ccc';
-        });
+      // Check if the clicked date is already selected
+      const isSelected = this.classList.contains('selected');
+  
+      // Remove 'selected' class and reset border style for all dates
+      const allDates = document.querySelectorAll('.delivery-dates li');
+      allDates.forEach(date => {
+          date.classList.remove('selected');
+          date.style.borderLeft = '1px solid #ccc';
+          date.style.fontWeight = 'lighter';
 
-        // Apply 'selected' style to the clicked date
-        this.classList.add('selected');
-        this.style.borderLeft = '5px solid red';
+      });
+  
+      // If the clicked date was not selected, apply 'selected' style
+      if (!isSelected) {
 
-        // Update the delivery date display
-        const selectedDate = this.textContent;
-        const deliveryText = document.querySelector('.delivery-text');
-        deliveryText.textContent = `Delivery Date: ${selectedDate}`;
-
-        // Store the selected delivery date in local storage
-        localStorage.setItem('selectedDate', selectedDate);
-
-        // Update delivery date display in other parts of the page
-        const delivery = document.querySelector('.deliverytext');
-        const cartdate = document.querySelector('.deliverytextcart');
-        delivery.textContent = ` ${selectedDate}`;
-        cartdate.textContent = `My delivery for: ${selectedDate}`;
-    }
+          this.classList.add('selected');
+          this.style.borderLeft = '5px solid red';
+      }
+  
+      // Update the delivery date display
+      const selectedDate = isSelected ? `Delivery Date: ${getNextMonday()}` : this.textContent;
+      const deliveryText = document.querySelector('.delivery-text');
+      deliveryText.textContent = `Delivery Date: ${selectedDate}`;
+  
+      // Store the selected delivery date in local storage
+      localStorage.setItem('selectedDate', selectedDate);
+  
+      // Update delivery date display in other parts of the page
+      const delivery = document.querySelector('.deliverytext');
+      const cartdate = document.querySelector('.deliverytextcart');
+      delivery.textContent = ` ${selectedDate}`;
+      cartdate.textContent = `My delivery for: ${selectedDate}`;
+  }
+  
 
     // Function to handle the 'hover' effect on delivery dates
     function handleHover() {
@@ -76,69 +91,60 @@ document.addEventListener('DOMContentLoaded', function () {
         today.setDate(today.getDate() + daysUntilNextMonday);
         return today;
     }
-
-    // Function to generate delivery dates for the next 10 days, starting from the next Monday
     function generateDeliveryDates() {
-        // Get the template for delivery dates
-        const deliveryDatesTemplate = document.getElementById('deliveryDatesTemplate').content;
-
-        const deliveryDates = deliveryDatesTemplate.cloneNode(true);
-        const ul = deliveryDates.querySelector('ul');
-        const nextMonday = getNextMonday();
-        let isFirstDeliveryDateSet = false;
-
-        for (let i = 0; i < 10; i++) {
-            // Calculate the delivery date for the current iteration
-            const deliveryDate = new Date(nextMonday);
-            deliveryDate.setDate(deliveryDate.getDate() + i);
-
-            // Format the delivery date as a string
-            const formattedDate = deliveryDate.toLocaleDateString('en-US', {
-                weekday: 'long',
-                month: 'long',
-                day: 'numeric'
-            });
-
-            // Create a list item for the delivery date
-            const li = document.createElement('li');
-            li.textContent = `${formattedDate}`;
-
-            // For the first date, mark it as the 'Most Popular' and set it as the default selected date
-            if (i === 0 && !isFirstDeliveryDateSet) {
-                const span = document.createElement('span');
-                span.innerHTML = '&#9733; Most Popular';
-                span.classList.add('popular');
-                li.appendChild(span);
-                li.classList.add('monday');
-
-                // Set the default selected date in local storage
-                localStorage.setItem('selectedDate', formattedDate);
-                isFirstDeliveryDateSet = true;
-
-                // Display the default selected date in the delivery date section
-                const deliveryText = document.querySelector('.delivery-text');
-                deliveryText.textContent = `Delivery Date: ${formattedDate}`;
-                const deliverytext = document.querySelector('.deliverytext');
-                deliverytext.textContent = ` ${formattedDate}`;
-
-                // Display the default selected date in the shopping cart section
-                const cartdate = document.querySelector('.deliverytextcart');
-                cartdate.textContent = `Delivery Date: ${formattedDate}`;
-            }
-
-            // Add event listeners to each delivery date item
-            li.addEventListener('click', toggleSelection);
-            li.addEventListener('mouseenter', handleHover);
-            li.addEventListener('mouseleave', handleMouseOut);
-
-            // Append the date item to the list
-            ul.appendChild(li);
+      const deliveryDatesTemplate = document.getElementById('deliveryDatesTemplate').content;
+    
+      const deliveryDates = deliveryDatesTemplate.cloneNode(true);
+      const ul = deliveryDates.querySelector('ul');
+      const nextMonday = getNextMonday();
+      let isFirstDeliveryDateSet = false;
+    
+      for (let i = 0; i < 10; i++) {
+        const deliveryDate = new Date(nextMonday);
+        deliveryDate.setDate(deliveryDate.getDate() + i);
+    
+        const formattedDate = deliveryDate.toLocaleDateString('en-US', {
+          weekday: 'long',
+          month: 'long',
+          day: 'numeric'
+        });
+    
+        const day = deliveryDate.toLocaleDateString('en-US', { weekday: 'long' });
+        const month = deliveryDate.toLocaleDateString('en-US', { month: 'long' });
+        const date = deliveryDate.toLocaleDateString('en-US', { day: 'numeric' });
+    
+        const li = document.createElement('li');
+        li.textContent = `${day} ${month}, ${date}`;
+    
+        if (i === 0 && !isFirstDeliveryDateSet) {
+          const span = document.createElement('span');
+          span.innerHTML = '&#9733; Most Popular';
+          span.classList.add('popular');
+          li.appendChild(span);
+          li.classList.add('monday');
+    
+          localStorage.setItem('selectedDate', formattedDate);
+          isFirstDeliveryDateSet = true;
+    
+          const deliveryText = document.querySelector('.delivery-text');
+          deliveryText.textContent = `Delivery Date: ${formattedDate}`;
+          const deliverytext = document.querySelector('.deliverytext');
+          deliverytext.textContent = ` ${formattedDate}`;
+    
+          const cartdate = document.querySelector('.deliverytextcart');
+          cartdate.textContent = `Delivery Date: ${formattedDate}`;
         }
-
-        // Append the delivery dates list to the custom element on the page
-        document.querySelector('.custom-element').appendChild(deliveryDates);
+    
+        li.addEventListener('click', toggleSelection);
+        li.addEventListener('mouseenter', handleHover);
+        li.addEventListener('mouseleave', handleMouseOut);
+    
+        ul.appendChild(li);
+      }
+    
+      document.querySelector('.custom-element').appendChild(deliveryDates);
     }
-
+    
     // Generate the delivery dates on page load
     generateDeliveryDates();
 
@@ -310,6 +316,7 @@ document.addEventListener('DOMContentLoaded', function () {
             input.classList.remove('error');
         }
     }
+   
     const cart = [];
     let totalPrice = 0;
     function addToCart(event) {
