@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Store the meal value in local storage
     localStorage.setItem('selectedMeal', mealValue);
-    console.log('selectedMeal', mealValue);
   }
 
   // Attach click event listener to each meal card
@@ -77,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
     allDates.forEach(date => {
       date.classList.remove('selected');
       date.style.borderLeft = '1px solid #ccc';
-      date.style.fontWeight = 'lighter';
 
     });
 
@@ -228,13 +226,6 @@ document.addEventListener('DOMContentLoaded', function () {
           cardElement.classList.add('special-card');
           specialPriceElement.textContent = '11.99$';
           specialPriceElement.classList.remove('d-none');
-          // Set text color to white for special cards
-          titleElement.style.color = 'white';
-          subtitleElement.style.color = 'white';
-          glutenElement.style.color = 'white';
-          caloriesElement.style.color = 'white';
-          carbsElement.style.color = 'white';
-          proteinsElement.style.color = 'white';
         }
 
         // Set the price and add a click event listener to the 'Add' button
@@ -250,114 +241,6 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(error => {
       console.log('Error:', error);
     });
-
-  // Get the form element
-  const form = document.querySelector('form');
-
-  // Add submit event listener to the form
-  form.addEventListener('submit', function (event) {
-    // Prevent the form from submitting
-    event.preventDefault();
-
-    // Validate the form inputs
-    if (validateForm()) {
-      // If the form is valid, submit the form
-      form.submit();
-    }
-  });
-
-  // Function to validate the form inputs
-  function validateForm() {
-    let isValid = true;
-
-    // Get references to form inputs
-    const firstNameInput = document.getElementById('first-name');
-    const lastNameInput = document.getElementById('last-name');
-    const deliveryNameInput = document.getElementById('delivery-name');
-    const cityInput = document.getElementById('city');
-    const stateInput = document.getElementById('state');
-    const zipInput = document.getElementById('zip');
-    const phoneInput = document.getElementById('phone');
-    const emailInput = document.getElementById('email');
-
-    // Validate each input field
-    if (!isValidInput(firstNameInput)) {
-      isValid = false;
-    }
-    if (!isValidInput(lastNameInput)) {
-      isValid = false;
-    }
-    if (!isValidInput(deliveryNameInput)) {
-      isValid = false;
-    }
-    if (!isValidInput(cityInput)) {
-      isValid = false;
-    }
-    if (!isValidInput(stateInput)) {
-      isValid = false;
-    }
-    if (!isValidInput(zipInput)) {
-      isValid = false;
-    }
-    if (!isValidInput(phoneInput)) {
-      isValid = false;
-    }
-    if (!isValidInput(emailInput) || !isValidEmail(emailInput.value)) {
-      isValid = false;
-    }
-
-    return isValid;
-  }
-
-  // Function to validate an input field
-  function isValidInput(input) {
-    if (input.value.trim() === '') {
-      // If the input value is empty, show an error message
-      showError(input, 'This field is required.');
-      return false;
-    } else {
-      // If the input value is not empty, remove any error message
-      removeError(input);
-      return true;
-    }
-  }
-
-  // Function to validate an email address
-  function isValidEmail(email) {
-    // Use a simple regular expression to validate the email format
-    const emailRegex = /^\S+@\S+\.\S+$/;
-    return emailRegex.test(email);
-  }
-
-  // Function to show an error message for an input field
-  function showError(input, message) {
-    // Remove any existing error message
-    removeError(input);
-
-    // Create the error message element
-    const errorElement = document.createElement('div');
-    errorElement.classList.add('error-message');
-    errorElement.textContent = message;
-
-    // Add the error message after the input field
-    input.parentNode.appendChild(errorElement);
-
-    // Add the error class to the input field
-    input.classList.add('error');
-  }
-
-  // Function to remove the error message for an input field
-  function removeError(input) {
-    // Check if the input field has an error message
-    const errorElement = input.parentNode.querySelector('.error-message');
-    if (errorElement) {
-      // Remove the error message
-      errorElement.parentNode.removeChild(errorElement);
-
-      // Remove the error class from the input field
-      input.classList.remove('error');
-    }
-  }
 
   const cart = [];
   let totalPrice = 0;
@@ -707,4 +590,110 @@ document.addEventListener('DOMContentLoaded', function () {
   const initialCart = [];
   updateSelectedMeals(initialCart);
   updateOrderDetails();
+  document.getElementById('validationForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Clear previous error messages
+    const errorDivs = document.getElementsByClassName('error');
+    for (let i = 0; i < errorDivs.length; i++) {
+      errorDivs[i].textContent = '';
+    }
+
+    // Get form field values
+    const firstName = document.getElementById('first-name').value;
+    const lastName = document.getElementById('last-name').value;
+    const fullName = document.getElementById('delivery-name').value;
+    const address1 = document.getElementById('address-1').value;
+    const address2 = document.getElementById('address-2').value;
+    const city = document.getElementById('city').value;
+    const state = document.getElementById('state').value;
+    const zip = document.getElementById('zip').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+
+    // Validation patterns
+    const namePattern = /^[A-Za-z]+$/;
+    const zipPattern = /^\d+$/;
+    const phonePattern = /^\d{11}$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Validation logic
+    let isValid = true;
+
+    // First Name
+    if (firstName === '') {
+      document.getElementById('firstNameError').textContent = 'First Name is required.';
+      isValid = false;
+    } else if (!namePattern.test(firstName)) {
+      document.getElementById('firstNameError').textContent = 'First Name cannot have digits.';
+      isValid = false;
+    }
+
+    // Last Name
+    if (lastName === '') {
+      document.getElementById('lastNameError').textContent = 'Last Name is required.';
+      isValid = false;
+    } else if (!namePattern.test(lastName)) {
+      document.getElementById('lastNameError').textContent = 'Last Name cannot have digits.';
+      isValid = false;
+    }
+
+    // Full Name for Delivery Address
+    if (fullName === '') {
+      document.getElementById('fullnameError').textContent = 'Full Name for Delivery Address is required.';
+      isValid = false;
+    } else if (!namePattern.test(fullName)) {
+      document.getElementById('fullnameError').textContent = 'Full Name for Delivery Address cannot have digits.';
+      isValid = false;
+    }
+
+    // Address Line 1
+    if (address1 === '') {
+      document.getElementById('Address1Error').textContent = 'Address Line 1 is required.';
+      isValid = false;
+    }
+
+    // City and State
+    if (!namePattern.test(city)) {
+      document.getElementById('cityError').textContent = 'City must have letters only, no numbers.';
+      isValid = false;
+    }
+
+    if (!namePattern.test(state)) {
+      document.getElementById('stateError').textContent = 'State must have letters only, no numbers.';
+      isValid = false;
+    }
+
+    // ZIP
+    if (zip === '') {
+      document.getElementById('zipError').textContent = 'ZIP is required.';
+      isValid = false;
+    } else if (!zipPattern.test(zip)) {
+      document.getElementById('zipError').textContent = 'ZIP must only have numeric input.';
+      isValid = false;
+    }
+
+    // Phone
+    if (phone === '') {
+      document.getElementById('phoneError').textContent = 'Phone is required.';
+      isValid = false;
+    } else if (!phonePattern.test(phone)) {
+      document.getElementById('phoneError').textContent = 'Phone should be of 11 digits only.';
+      isValid = false;
+    }
+
+    // Email
+    if (email === '') {
+      document.getElementById('EmailError').textContent = 'Email is required.';
+      isValid = false;
+    } else if (!emailPattern.test(email)) {
+      document.getElementById('EmailError').textContent = 'Please enter a valid email address.';
+      isValid = false;
+    }
+
+    if (isValid) {
+      alert('Form successfully submitted!');
+      validationForm.reset();
+    }
+  });
 });

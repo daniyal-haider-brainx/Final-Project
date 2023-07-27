@@ -31,9 +31,9 @@
   <div class="step-app " id="pageSteps">
     <!------------------------------ JQuery Steps Container------------------------------>
     <div class="container-fluid steps_outercontainer ">
-      <ul class="step-steps steps_container pt-2 pl-3">
+      <ul class="step-steps steps_container pt-2 pl-3 d-flex align-items-center justify-content-center">
         <div class="d-inline-flex nav-bar mx-auto">
-          <li class="header-list text-center active" data-step-target="plan-step">Plan <i
+          <li class="header-list text-center active font-weight-bold" data-step-target="plan-step">Plan <i
               class="ms-1 me-2 fa fa-angle-right" aria-hidden="true"></i></li>
           <li class="header-list text-center" data-step-target="day-step">Day <i class="fa fa-angle-right"
               aria-hidden="true"></i></li>
@@ -46,9 +46,9 @@
     <!------------------------------------------------------------ JQuery Steps Sections-------------------------------------------------------------------------->
     <div class="step-content mt-0 ">
       <!--------------------------------------------- Section 1------------------------------------------------------------>
-      <section class="section-plans step-tab-panel active" id="plans" data-step="plan-step">
+      <section class="section-plans step-tab-panel active font-weight-bold" id="plans" data-step="plan-step">
         <!--------------------------------- Main Screen --------------------------------->
-        <div class="main">
+        <div class="main d-flex flex-column align-items-center">
           <!------------------------------ Flex Container ------------------------------------->
           <div class="container plans_intro text-center mt-5">
             <!------------------------------ Logo------------------------------------->
@@ -60,7 +60,7 @@
             <!------------------------------ Meals Introduction ------------------------------------->
             <div class="mb-2">
               <div class="sub_heading">We offer anywhere from 4-12 meals per week, starting at <span
-                  class="price">$11.79/ meal </span>.<span class="para_decoration">The bigger your box, the</span>
+                  class="price ">$11.79/ meal </span>.<span class="para_decoration">The bigger your box, the</span>
               </div>
               <div class="sub_heading"><span class="para_decoration">more you'll save ---</span> and you can always
                 pause or change your plans any time.</div>
@@ -74,12 +74,12 @@
                 <div class="step-footer">
                   <div data-step-action="next" class="step-btn">
                     <div class="card cardmeals" data-id="4">
-                      <div class="overlay-text">Save up to 10%</div>
+                      <div class="overlay-text font-weight-bold">Save up to 10%</div>
                       <img class="card-img-top" src="assets/images/4-meals@2x.png" alt="Card image cap">
                       <div class="card-body">
-                        <p class="card-text">4 Meals <span class="subscript_Card">(per week)</span></p>
-                        <p class="plan_text ">Plan Price: <span class="planprice">$56</span></p>
-                        <p class="plan_text ">$11.49/meal</p>
+                        <p class="card-text font-weight-bold text-center">4 Meals <span class="subscript_Card">(per week)</span></p>
+                        <p class="plan_text justify-content-center align-items-center ">Plan Price: <span class="planprice">$56</span></p>
+                        <p class="plan_text justify-content-center align-items-center">$11.49/meal</p>
                       </div>
                     </div>
                   </div>
@@ -92,9 +92,9 @@
                     <div class="card cardmeals">
                       <img class="card-img-top" src="assets/images/6-meals@2x.png" alt="Card image cap">
                       <div class="card-body">
-                        <p class="card-text">6 Meals <span class="subscript_Card">(per week)</span></p>
-                        <p class="plan_text">Plan Price: <span class="planprice">$84</span></p>
-                        <p class="plan_text">$9.49/meal</p>
+                        <p class="card-text font-weight-bold">6 Meals <span class="subscript_Card">(per week)</span></p>
+                        <p class="plan_text justify-content-center align-items-center">Plan Price: <span class="planprice">$84</span></p>
+                        <p class="plan_text justify-content-center align-items-center">$9.49/meal</p>
                       </div>
                     </div>
                   </div>
@@ -107,9 +107,9 @@
                     <div class="card cardmeals">
                       <img class="card-img-top" src="assets/images/10-meals@2x.png" alt="Card image cap">
                       <div class="card-body">
-                        <p class="card-text">10 Meals <span class="subscript_Card">(per week)</span></p>
-                        <p class="plan_text">Plan Price: <span class="planprice">$140</span></p>
-                        <p class="plan_text">$8.99/meal</p>
+                        <p class="card-text font-weight-bold">10 Meals <span class="subscript_Card">(per week)</span></p>
+                        <p class="plan_text justify-content-center align-items-center">Plan Price: <span class="planprice">$140</span></p>
+                        <p class="plan_text justify-content-center align-items-center">$8.99/meal</p>
                       </div>
                     </div>
                   </div>
@@ -122,9 +122,9 @@
                     <div class="card cardmeals">
                       <img class="card-img-top" src="assets/images/12-meals@2x.png" alt="Card image cap">
                       <div class="card-body">
-                        <p class="card-text">12 Meals <span class="subscript_Card">(per week)</span></p>
-                        <p class="plan_text">Plan Price: <span class="planprice">$168</span></p>
-                        <p class="plan_text">$8.49/meal</p>
+                        <p class="card-text font-weight-bold text-center">12 Meals <span class="subscript_Card">(per week)</span></p>
+                        <p class="plan_text justify-content-center align-items-center">Plan Price: <span class="planprice">$168</span></p>
+                        <p class="plan_text justify-content-center align-items-center">$8.49/meal</p>
                       </div>
                     </div>
                   </div>
@@ -341,7 +341,7 @@
           <div class="row meals_row">
             <!------------------------------ Meals Columns------------------------------------->
             <div class="col-lg-9 col-md-8 menu_column">
-              <div class="meal_cards_layout">
+              <div class="meal_cards_layout d-flex flex-wrap justify-content-center">
                 <!------------------------------ Template View ------------------------------------->
                 <template id="card-template">
                   <!------------------------------ Custom Cards ------------------------------------->
@@ -354,7 +354,7 @@
                       <div class="custom-card-body">
                         <h5 class="custom-card-title"></h5>
                         <h6 class="custom-card-subtitle"></h6>
-                        <div class="custom-card-info">
+                        <div class="custom-card-info d-flex justify-content-between">
                           <div class="custom-card-item border-right">
                             <div class="custom-card-label">Gluten:</div>
                             <div class="custom-card-value custom-card-gluten"></div>
@@ -385,9 +385,9 @@
             </div>
             <!------------------------------ Cart Column------------------------------------->
             <div class="col-lg-3 col-md-4 cart_column">
-              <div class="mobile_date">
+              <div class="dateDisplay d-flex justify-content-center">
                 <p class="deliverytextcart"></p>
-                <button id="clearAllButton">Clear All</button>
+                <button id="clearAllButton" class="d-flex justify-content-end">Clear All</button>
               </div>
               <!------------------------------ Cart List------------------------------------->
               <div class="mobile_display_cart scrollcart">
@@ -396,24 +396,23 @@
               <!------------------------------ Order Details------------------------------------->
               <div class="details">
                 <h5 class="cart_summary">Order Summary</h5>
-                <h6 class="displayPrice">
+                <h6 class="displayPrice d-flex justify-content-between align-items-center">
                   <span id="totalQuantityCart"></span>&nbsp;<span>Meals</span>
                   <span id="price">$0.00</span>+ <span id="specialItemsTotalPrice"></span>
                 </h6>
-                <h6 class="subTotalCartPrice">SubTotal: <span id="totalPrice"></span> </h6>
+                <h6 class="subTotalCartPrice d-flex justify-content-between">SubTotal: <span id="totalPrice"></span> </h6>
                 <div class="checkout_para_meals">Shipping and tax added at checkout.</div>
               </div>
               <!------------------------------ Cart Footer ------------------------------------->
               <div class="cartfooter">
-                <div class="cart-container_footer">
-                  <div class="footer_row">
-                    <div class="subtotal-container">
+                <div class="cart-container_footer d-flex justify-content-between align-items-center">
+                  <div class="footer_row d-flex justify-content-between align-items-center">
+                    <div class="subtotal-container d-flex align-items-center">
                       <span class="subtotal-label">SubTotal</span>
                       <span id="subtotalofCart" class="subtotal-value">0.00</span>
                     </div>
-
-                    <div class="carticoncontainer">
-                      <span id="totalMeals" class="cart-icon">
+                    <div class="carticoncontainer d-flex align-items-center">
+                      <span id="totalMeals" class="cart-icon d-flex align-items-center">
                         <!-- Inline SVG for the cart icon -->
                         <svg viewBox="0 0 24 24" id="icon" class="cart-icon-svg">
                           <image xlink:href="assets/images/cart-icon@2x.png" width="24" height="24" />
@@ -422,15 +421,14 @@
                       <span id="cartItemCount"></span>
                       <!-- Display the quantity of items here -->
                     </div>
-
                   </div>
                 </div>
               
               <!------------------------------ Enabled After Meals Selection------------------------------------->
               <div class="step-footer">
                 <div data-step-action="next" class="step-btn">
-                  <button id="nextButton" class="button_cart" disabled>Next</button>
-                  <div id="messageContainer"></div>
+                  <button id="nextButton" class="button_cart d-flex justify-content-center align-items-center" disabled>Next</button>
+                  <div id="messageContainer" class="d-flex align-items-center justify-content-center"></div>
                 </div>
               </div>
             </div>
@@ -442,22 +440,24 @@
       <section class="section-checkout my-lg-5 step-tab-panel" id="meals" data-step="checkout-step">
         <!------------------------------- Checkout Area ------------------------------------>
         <div class="container sectionContainer d-flex flex-wrap">
-          <div class="w-50 pr-3 checkout-heading-container">
+          <div class="orderContaner pr-3 checkout-heading-container">
             <h2 class="checkout-heading">Checkout</h2>
             <!------------------------------- Delivery Address Form ------------------------------->
             <div class="forms">
               <h3 class="form-heading">Delivery Address</h3>
               <!------------------------------- Checkout Form ------------------------------->
-              <form>
+              <form id="validationForm">
                 <!------------------------------- Name ------------------------------->
                 <div class="row mb-3">
                   <div class="col-12 col-sm-6">
                     <label for="first-name" class="form-label">First Name</label>
                     <input type="text" id="first-name" class="form-control" placeholder="First Name">
+                    <div id="firstNameError" class="error"></div>
                   </div>
                   <div class="col-12 col-sm-6">
                     <label for="last-name" class="form-label">Last Name</label>
                     <input type="text" id="last-name" class="form-control" placeholder="Last Name">
+                    <div id="lastNameError" class="error"></div>
                   </div>
                 </div>
                 <!------------------------------ Full Name ------------------------------->
@@ -466,6 +466,7 @@
                     <label for="delivery-name" class="form-label">Full Name for Delivery Address</label>
                     <input type="text" id="delivery-name" class="form-control"
                       placeholder="Full Name for Delivery Address">
+                      <div id="fullnameError" class="error"></div>
                   </div>
                 </div>
                 <!------------------------------- Address 1 ------------------------------->
@@ -473,6 +474,7 @@
                   <div class="col-md-12">
                     <label for="address-1" class="form-label">Address Line 1</label>
                     <input type="text" id="address-1" class="form-control" placeholder="Address Line 1">
+                    <div id="Address1Error" class="error"></div>
                   </div>
                 </div>
                 <!------------------------------- Address 2 ------------------------------->
@@ -480,6 +482,7 @@
                   <div class="col-md-12">
                     <label for="address-2" class="form-label">Address Line 2 (optional)</label>
                     <input type="text" id="address-2" class="form-control" placeholder="Address Line 2">
+                    <div id="Address2Error" class="error"></div>
                   </div>
                 </div>
                 <!------------------------------- City, State, ZIP ------------------------------->
@@ -487,14 +490,17 @@
                   <div class="col-12 col-sm-4">
                     <label for="city" class="form-label">City</label>
                     <input type="text" id="city" class="form-control" placeholder="City">
+                    <div id="cityError" class="error"></div>
                   </div>
                   <div class="col-12 col-sm-4">
                     <label for="state" class="form-label">State</label>
                     <input type="text" id="state" class="form-control" placeholder="State">
+                    <div id="stateError" class="error"></div>
                   </div>
                   <div class="col-12 col-sm-4">
                     <label for="zip" class="form-label">ZIP</label>
                     <input type="text" id="zip" class="form-control" placeholder="ZIP">
+                    <div id="zipError" class="error"></div>
                   </div>
                 </div>
                 <!------------------------------- Phone ------------------------------->
@@ -502,6 +508,7 @@
                   <div class="col-md-12">
                     <label for="phone" class="form-label">Phone</label>
                     <input type="text" id="phone" class="form-control" placeholder="Phone">
+                    <div id="phoneError" class="error"></div>
                   </div>
                 </div>
                 <!------------------------------- SMS Updates Checkbox ------------------------------->
@@ -521,12 +528,14 @@
                     <label for="email" class="form-label email">Email (We require your email to send you receipts and
                       order updates)</label>
                     <input type="email" id="email" class="form-control" placeholder="Email">
+                    <div id="EmailError" class="error"></div>
                   </div>
                 </div>
                 <!------------------------------- Submission ------------------------------->
                 <div class="row submit_button">
                   <div class="col-md-12">
-                    <button type="submit" class="button_submit">Submit</button>
+                    <button type="submit" class="button_submit" >Checkout</button>
+
                   </div>
                 </div>
               </form>
@@ -534,11 +543,11 @@
           </div>
 
           <!------------------------------- Order Summary ------------------------------->
-          <div class="w-50 pl-3">
+          <div class="orderContaner pl-3">
             <div class="container summary_container">
               <h2 class="checkout_heading">Order Summary</h2>
               <!------------------------------- Order summary content goes here ------------------------------->
-              <div class="order-summary">
+              <div class="order-summary d-flex flex-column">
                 <div class="promo-code">
                   <a href="" id="promo">+Add promo code</a>
                 </div>
@@ -550,22 +559,22 @@
                 <div class="order-details">
                   <!------------------------------- Order Details ------------------------------->
                   <div class="order-item">
-                    <p class="checkout_cost border-bottom">Meals<span id="selectedMealsTotalPrice">$0.00</span></p>
+                    <p class="checkout_cost d-flex justify-content-between border-bottom">Meals<span id="selectedMealsTotalPrice">$0.00</span></p>
                   </div>
                   <div class="order-item">
-                    <p class="checkout_cost border-bottom">Shipping: <span id="shippingAmount">$10.00</span></p>
+                    <p class="checkout_cost d-flex justify-content-between border-bottom">Shipping: <span id="shippingAmount">$10.00</span></p>
                   </div>
                   <div class="order-item">
-                    <p class="checkout_cost border-bottom">Tax: <span id="taxAmount">$10.88</span></p>
+                    <p class="checkout_cost d-flex justify-content-between border-bottom">Tax: <span id="taxAmount">$10.88</span></p>
                   </div>
                   <div class="order-item">
-                    <h4 class="checkout_totalcost">Total: <span id="totalAmount">$0.00</span></h4>
+                    <h4 class="checkout_totalcost d-flex justify-content-between">Total: <span id="totalAmount">$0.00</span></h4>
                   </div>
                 </div>
               </div>
               <!------------------------------- Display Selected Meals ------------------------------->
               <h3 class="checkout_heading">My Meals</h3>
-              <div class="selected-meals">
+              <div class="selected-meals d-flex align-items-center">
                 <ul id="selectedMealsList"></ul>
               </div>
             </div>

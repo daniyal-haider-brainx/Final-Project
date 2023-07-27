@@ -9,7 +9,7 @@
   --overlay-bg: #FFFFFF;
   --border-color: #ccc;
   --item-button: #717171;
-  --clear-button: blue;
+  --clear-button: #3167FF;
   --label: #333;
 }
 
@@ -24,13 +24,31 @@
   src: url("../fonts/Roboto-Regular.ttf") format("truetype");
 }
 
-/*--------------------------------------Meals Introduction Container-------------------------------------- */
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/*--------------------------------------Generic Fonts -------------------------------------- */
+.plans_child,
+.heading,
+.headingfaqs,
+.headingcheckout,
+.order-details_meals,
+.heading_checkout,
+.form-heading,
+.cart-header {
+  font-family: 'Roboto-bold';
 }
 
+.sub_heading,
+.checkout_para,
+.checkout_para_meals,
+.planprice,
+.plan_text,
+.cart-item,
+.cart-item-quantity,
+.total-price,
+#subtotal {
+  font-family: "Roboto-Regular";
+}
+
+/*--------------------------------------Meals Introduction Container-------------------------------------- */s
 .section-plans {
   background-color: var(--bg-color);
   height: 90vh;
@@ -43,18 +61,18 @@
   border-top: 1px solid var(--step-border);
   border-bottom: 1px solid var(--step-border);
   height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
+  pointer-events: none; 
+  cursor: pointer;
 }
-
-.steps_container:hover {
+.step-steps .done{
+  pointer-events: auto;
+  cursor: pointer;
+}
+.header-list:hover{
   text-decoration: underline;
 }
-
 li.header-list.text-center.active {
-  color: blue;
+  color: #3167FF;
 }
 
 a:hover,
@@ -62,7 +80,10 @@ a:focus {
   text-decoration: none;
   outline: none;
 }
-
+.orderContaner
+{
+  width: 50%;
+}
 #accordion .panel {
   border: none;
   border-radius: 0;
@@ -86,7 +107,6 @@ a:focus {
   color: black;
 
 }
-
 
 #accordion .panel-title a:before,
 #accordion .panel-title a:after {
@@ -125,7 +145,6 @@ a:focus {
 
 }
 
-/* Add this rule to make the title red when collapsed, otherwise black */
 #accordion .panel-title a {
   color: var(--alert-color);
 }
@@ -134,8 +153,8 @@ a:focus {
   color: black;
 }
 
-
 .step-app>.step-content {
+  border: none !important;
   background-color: var(--bg-color);
   margin-bottom: 0;
   margin-top: 0;
@@ -145,7 +164,6 @@ a:focus {
 
 .background {
   background-color: var(--bg-color);
-
 }
 
 .steps_outercontainer {
@@ -164,26 +182,28 @@ a:focus {
 .step-app {
   padding-top: 60px;
 }
-
+.error
+{
+  color: red;
+}
 .steps_container.active {
   color: blue;
 }
 
 /*--------------------------------------Logo-------------------------------------- */
 .svg_logo {
-  margin-top: 20px;
+  margin-top: 42px;
 }
 
 /*--------------------------------------Headings-------------------------------------- */
 .plans_child {
   text-align: center;
-  font-family: "Roboto-Bold";
   margin-bottom: 0px;
 }
 
 .sub_heading {
   text-align: center;
-  font-family: "Roboto-Regular";
+
   font-size: 15px;
   font-weight: lighter;
 }
@@ -192,7 +212,6 @@ a:focus {
 .checkout_para {
   font-weight: lighter;
   text-align: center;
-  font-family: "Roboto-Regular";
   font-size: 14px;
   margin-bottom: 10px;
   opacity: 1;
@@ -201,33 +220,18 @@ a:focus {
 .checkout_para_meals {
   text-align: center;
   font-weight: lighter;
-  font-family: "Roboto-Regular";
   font-size: 14px;
   margin-bottom: 10px;
   opacity: 1;
 }
 
 /*--------------------------------------Bootstrap inline flex container-------------------------------------- */
-.d-inline-flex.nav-bar {
-  display: inline-flex;
-}
-
 .header-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: inline-block;
 }
-
-.text-center {
-  text-align: center;
-}
-
-/*--------------------------------------Active Class-------------------------------------- */
-.active {
-  font-weight: bold;
-}
-
 /*--------------------------------------Angle Icon-------------------------------------- */
 .fa-angle-right {
   padding-left: 10px;
@@ -242,53 +246,31 @@ li.header-list.text-center.active {
   color: blue;
 }
 
-
-.button_delivery {
-  background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%);
-  border: none;
-  width: 200px;
-  color: var(--container-bg);
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: none;
-}
-
-.button_submit {
-  background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%);
-  border: none;
-  width: 200px;
-  color: var(--container-bg);
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: none;
-}
-
 /*--------------------------------------Next Button-------------------------------------- */
+
+.button_delivery,
+.button_submit,
 .button {
   background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%);
   border: none;
-  width: 200px;
+  width: 342px;
   color: var(--container-bg);
   padding: 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
   border-radius: none;
 }
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
 
+  outline: none;
+}
+.button_submit
+{
+  width: 100% !important;
+}
 .button:hover {
   transition: smooth;
   width: 400px;
@@ -300,15 +282,6 @@ li.header-list.text-center.active {
   border: none;
   cursor: pointer;
 }
-
-.card-group {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1px;
-  margin-top: 20px;
-}
-
 .card_container {
   padding-right: 5px;
   padding-left: 5px;
@@ -329,11 +302,6 @@ li.header-list.text-center.active {
   cursor: pointer;
   background-color: none !important;
 }
-
-.cardmeals {
-  background: none;
-}
-
 /*--------------------------------------Overlay Text Card------------------------------------- */
 .card .overlay-text {
   position: absolute;
@@ -359,13 +327,11 @@ li.header-list.text-center.active {
 /*--------------------------------------Card Body Text------------------------------------ */
 .price {
   color: var(--alert-color);
-  font-weight: bold;
 }
 
 .planprice {
   font-size: 14px;
   color: var(--alert-color);
-  font-family: "Roboto-Regular";
 }
 
 .para_decoration {
@@ -381,10 +347,7 @@ li.header-list.text-center.active {
 .plan_text {
   font-size: 14px;
   display: flex !important;
-  justify-content: center;
   font-weight: bold;
-  font-family: "Roboto-Regular";
-  align-items: center;
   margin: 0;
 }
 
@@ -393,32 +356,18 @@ li.header-list.text-center.active {
 /*--------------------------------------Section 2 Headings------------------------------------- */
 .heading {
   font-size: 40px;
-  font-family: "Roboto-Bold";
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: 10px;
   margin-bottom: 20px;
-  font-weight: bold;
 }
 
 .headingfaqs {
   font-size: 48px;
-  font-family: "Roboto-Bold";
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: 40px;
   margin-bottom: 20px;
-  font-weight: bold;
 }
 
 .headingcheckout {
   font-size: 48px;
-  font-family: "Roboto-Bold";
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: auto;
 }
 
@@ -438,7 +387,6 @@ li.header-list.text-center.active {
   padding: 0;
   margin: 0;
 }
-
 /*--------------------------------------Delivery Dates Items------------------------------------ */
 .delivery-dates li {
   background: var(--overlay-bg);
@@ -449,9 +397,8 @@ li.header-list.text-center.active {
   transition: all 0.3s ease;
   cursor: pointer;
   list-style: none;
-  border-bottom: 1px solid var(--delivery-border);
-  border-left: 1px solid var(--delivery-border);
-  border-top: 1px solid var(--delivery-border);
+  border: 1px solid var(--delivery-border);
+  border-right: none;
   text-align: left;
 }
 
@@ -525,16 +472,16 @@ li.header-list.text-center.active {
   width: 890px;
   border: none;
   height: 2px;
-  display: flex;
-  justify-content: center;
   margin: auto;
   background-color: var(--step-border);
 
 }
+
 .special-card .custom-card-body {
   background-color: var(--textblack);
   color: var(--container-bg);
 }
+
 .special-card {
   position: relative;
 }
@@ -558,30 +505,25 @@ li.header-list.text-center.active {
 /*--------------------------------------Meals------------------------------------ */
 .meals_row {
   height: 1000px;
-
   margin: 0;
 }
+
 .checkout_heading {
   font-weight: bold;
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 /*-------------------------------------Meals Layout---------------------------------- */
 .meal_cards_layout {
-  display: flex;
-  flex-wrap: wrap;
   column-gap: 12px !important;
   row-gap: 10px !important;
-  justify-content: start;
 }
 
 /*-------------------------------------Meals--------------------------------- */
 .custom-card {
   width: 328px !important;
-
   border: 1px solid var(--border-color);
-  display: flex;
-  flex-direction: column;
 }
 
 /*-------------------------------------Meals Details--------------------------------- */
@@ -593,6 +535,7 @@ li.header-list.text-center.active {
   object-fit: cover;
   max-width: 100%;
 }
+
 .custom-card-price {
   display: none;
 }
@@ -603,26 +546,19 @@ li.header-list.text-center.active {
 
 .custom-card-item {
   font-size: 12px;
-  color: var(--delivery-border);
 }
 
 .custom-card-title {
   font-size: 14px;
   font-weight: bold;
-  color: var(--label);
   margin-bottom: 5px;
 }
 
 .custom-card-subtitle {
   font-size: 14px;
-  color: #666;
   margin-bottom: 10px;
 }
 
-.custom-card-info {
-  display: flex;
-  justify-content: space-between;
-}
 
 .custom-card-info span {
   font-size: 12px;
@@ -668,6 +604,7 @@ li.header-list.text-center.active {
   bottom: 0;
   right: 0;
 }
+
 /*--------------------------------------Cart Footer------------------------------------ */
 
 .cartfooter {
@@ -682,9 +619,6 @@ li.header-list.text-center.active {
 }
 
 .cartfooter .cart-container_footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding-bottom: 10px;
 }
 
@@ -704,14 +638,7 @@ li.header-list.text-center.active {
   padding: 10px;
   margin-bottom: 20px;
 }
-
-.cartfooter .carticoncontainer {
-  display: flex;
-  align-items: center;
-}
-
 .cart-header {
-  font-family: "Roboto-Bold";
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -721,9 +648,7 @@ li.header-list.text-center.active {
   position: absolute;
   top: 0;
   right: 0;
-  display: flex;
   width: max-content;
-  align-items: center;
   border-radius: 15px;
 }
 
@@ -740,16 +665,7 @@ li.header-list.text-center.active {
   padding: 5px;
   font-size: 14px;
 }
-
-.displayPrice {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 #totalQuantityCart {
-  display: flex;
-  justify-content: space-between;
   display: inline;
 }
 
@@ -765,15 +681,7 @@ li.header-list.text-center.active {
 }
 
 .footer_row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 10px;
-}
-
-.subtotal-container {
-  display: flex;
-  align-items: center;
 }
 
 .subtotal-label {
@@ -786,14 +694,14 @@ li.header-list.text-center.active {
 }
 
 .carticoncontainer {
-  display: flex;
-  align-items: center;
-  align-items: flex-end;
   margin-left: auto;
   border-radius: 10px;
   background-color: #ccc;
 }
-
+.deliverytextcart
+{
+  font-weight: bold;
+}
 .cart-icon-svg {
   fill: #000;
   width: 24px;
@@ -817,7 +725,6 @@ li.header-list.text-center.active {
 
 /*-------------------------------------Cart Items Details------------------------------------ */
 .cart-item {
-  font-family: "Roboto-Regular";
   display: flex;
   align-items: center;
 }
@@ -842,7 +749,6 @@ li.header-list.text-center.active {
 
 /*--------------------------------------Cart Button------------------------------------- */
 .button_cart {
-
   background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%);
   border: none;
   width: 600px;
@@ -850,9 +756,6 @@ li.header-list.text-center.active {
   padding: 10px;
   text-align: center;
   text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 16px;
   cursor: pointer;
   border-radius: none;
@@ -872,11 +775,6 @@ li.header-list.text-center.active {
 }
 
 /*-------------------------------------Price----------------------------------- */
-.subTotalCartPrice {
-  display: flex;
-  justify-content: space-between;
-}
-
 .cart_item_list {
   display: flex;
   justify-content: space-between;
@@ -890,7 +788,6 @@ li.header-list.text-center.active {
 
 /*------------------------------------Increment/Decrement Button---------------------------------- */
 .cart-item-quantity button {
-  font-family: "Roboto-Regular";
   display: flex;
   justify-content: flex-end;
   padding: 5px 10px;
@@ -946,17 +843,11 @@ li.header-list.text-center.active {
 }
 
 .total-price {
-  font-family: "Roboto-Regular";
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-/*-------------------------------------Date---------------------------------- */
-.mobile_date {
-  display: flex;
-  justify-content: space-between;
-}
 
 /*-------------------------------------Clear Cart---------------------------------- */
 #clearAllButton {
@@ -965,8 +856,6 @@ li.header-list.text-center.active {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  display: flex;
-  justify-content: end;
   outline: none;
 }
 
@@ -974,7 +863,6 @@ li.header-list.text-center.active {
 
 #subtotal {
   color: var(--alert-color);
-  font-family: "Roboto-Regular";
   align-items: center;
 }
 
@@ -983,9 +871,9 @@ li.header-list.text-center.active {
 /*--------------------------------------Checkout Form------------------------------------ */
 .forms {
   max-width: 600px;
-  padding: 60px;
   margin-bottom: 20px;
   background-color: var(--container-bg);
+  padding: 10px;
 }
 
 .email {
@@ -1082,6 +970,7 @@ input[type="checkbox"] {
 }
 
 #selectedMealsList {
+  width: 100%;
   list-style: none;
   padding: inherit;
   margin: inherit;
@@ -1100,12 +989,6 @@ input[type="checkbox"] {
   font-weight: bold;
   padding-left: 20px;
 }
-
-.selected-meal {
-  display: flex;
-  align-items: center;
-}
-
 .selected-meal-img {
   width: 150px !important;
   height: 100px !important;
@@ -1132,9 +1015,6 @@ input[type="checkbox"] {
 #messageContainer {
   font-size: 12px;
   color: var(--alert-color) !important;
-  align-items: center;
-  display: flex;
-  justify-content: center;
   font-weight: lighter;
   opacity: .7;
 }
@@ -1168,6 +1048,7 @@ input[type="checkbox"] {
 }
 
 #totalMeals {
+
   position: absolute;
   top: 31%;
   right: 67px;
@@ -1181,8 +1062,6 @@ input[type="checkbox"] {
 
 /*------------------------------------Checkout Costs-------------------------------- */
 .checkout_cost {
-  display: flex;
-  justify-content: space-between;
   font-weight: lighter;
   padding-left: 10px;
   padding-right: 10px;
@@ -1206,8 +1085,6 @@ input[type="checkbox"] {
 .checkout_totalcost {
   font-size: 14px;
   font-weight: bold;
-  display: flex;
-  justify-content: space-between;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
@@ -1220,9 +1097,8 @@ input[type="checkbox"] {
 /*------------------------------------Meals details--------------------------------- */
 .order-details_meals {
   font-size: 23px;
-  font-family: 'Roboto-bold';
-}
 
+}
 /*------------------------------------Checkout Layout--------------------------------- */
 .meals_checkout {
   display: flex;
@@ -1294,7 +1170,6 @@ input[type="checkbox"] {
   border: 1px solid #EDEDED;
   display: flex;
   flex-direction: column;
-
 }
 
 .promo-code {
@@ -1318,9 +1193,11 @@ input[type="checkbox"] {
   display: flex;
   justify-content: center;
 }
-.panel-default{
-  color:#000;
+
+.panel-default {
+  color: #000;
 }
+
 /*--------------------------------------Media Queries Section 1------------------------------------- */
 @media (max-width: 767px) {
 
@@ -1366,15 +1243,84 @@ input[type="checkbox"] {
   .planprice {
     font-size: 14px;
     color: var(--alert-color);
-    font-family: "Roboto-Regular";
+  }
+
+  .order-summary-lg {
+    display: none;
+  }
+
+  .order-summary-sm {
+    display: block;
+  }
+
+  .meal_cards_layout {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* CSS */
+  .cart_column {
+    position: fixed;
+    background-color: var(--container-bg);
+    top: 55%;
+    bottom: 0;
+    right: 0;
+    box-shadow: 0;
+    width: 100%;
+    transition: top 0.4s ease-in;
+    z-index: 1000;
+    /* Make sure the cart appears on top of other elements */
+    height: 0;
+    /* Initially set the height to 0 to hide the cart content */
+    overflow: scroll;
+  }
+
+  .cart-item-title {
+    font-size: 14px;
+  }
+
+  .cart_column.open-drawer {
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    padding-top: 10px;
+    height: 30%;
+  }
+
+  .custom-card {
+    width: 309px !important;
+  }
+
+  #cartItemCount {
+    width: 108px;
+    height: 50px;
+    top: 17px;
+    right: 12px;
+  }
+
+  .cartfooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100% !important;
+    height: 138px;
+    background-color: #fff;
+  }
+
+  #totalMeals {
+    top: 33%;
+    right: 73px;
+    height: 0px;
+  }
+
+  .details {
+    display: none !important;
   }
 }
 
 
 /*--------------------------------------Media Queries Section 2------------------------------------ */
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
 
- 
+
   .accordion-item .card {
     width: 370px;
   }
@@ -1412,11 +1358,25 @@ input[type="checkbox"] {
   .custom-card {
     width: 239px !important;
   }
-
+.dateDisplay
+{
+  font-size: 12px;
+}
   .scrollcart {
     overflow-y: scroll;
     max-height: 300px;
 
+  }
+  .button_cart 
+  {
+    width:100px;
+  }
+  .cart-item-img {
+    height: 100px;
+    width: 80px;
+  }
+  .cart-item-title {
+    font-size: 9px;
   }
 }
 
@@ -1513,22 +1473,6 @@ input[type="checkbox"] {
   }
 }
 
-
-@media (max-width: 500px) {
-  .w-50 {
-    width: 100%;
-  }
-
-  .sectionContainer {
-    order: 2;
-  }
-
-  .checkout-heading-container {
-    order: 1;
-  }
-
-}
-
 @media (min-width: 992px) {
   .button_cart {
     width: 284px !important;
@@ -1538,13 +1482,13 @@ input[type="checkbox"] {
 @media (max-width: 500px) {
   .headingcheckout {
     font-size: 28px;
-    font-family: "Roboto-Bold";
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
-    top:3px;
+    top: 3px;
   }
+
   #accordion .panel-title a {
     display: block;
     padding: 15px 70px 15px 20px;
@@ -1553,8 +1497,9 @@ input[type="checkbox"] {
     font-weight: 700;
     letter-spacing: 1px;
     color: black;
-  
+
   }
+
   .container.sectionContainer {
     display: flex;
     flex-direction: column;
@@ -1575,8 +1520,8 @@ input[type="checkbox"] {
   }
 
   .forms {
-    width: 230% !important;
-    padding-top: 0;
+    width:397px !important;
+    padding: 18px;
   }
 
   .form-heading {
@@ -1598,11 +1543,9 @@ input[type="checkbox"] {
   .container.summary_container {
     display: flex;
     flex-direction: column;
-    width: 215% !important;
+    width: 390px !important;
     padding-left: 0;
   }
-
-
 
   .button {
     background: transparent linear-gradient(119deg, #AF2081 0%, #533174 100%);
@@ -1659,13 +1602,6 @@ input[type="checkbox"] {
     font-weight: lighter;
     margin-bottom: 0;
   }
-}
-
-@media (max-width: 500px) {
-
-  .w-50 {
-    width: 100%;
-  }
 
   .sectionContainer {
     order: 2;
@@ -1674,7 +1610,6 @@ input[type="checkbox"] {
   .checkout-heading-container {
     order: 1;
   }
-
 }
 
 @media (min-width:500px) and (max-width: 912px) {
@@ -1743,7 +1678,7 @@ input[type="checkbox"] {
     padding-left: 10px;
   }
 
-  .w-50.pr-3.checkout-heading-container {
+  .orderContaner.pr-3.checkout-heading-container {
     font-size: 14px;
 
   }
@@ -1815,48 +1750,7 @@ input[type="checkbox"] {
   }
 }
 
-@media (max-width: 767px) {
-
-  .meal_cards_layout {
-    display: flex;
-    justify-content: center;
-    flex-direction: center !important;
-  }
-
-  /* CSS */
-  .cart_column {
-    position: fixed;
-    background-color: var(--container-bg);
-    top: 55%;
-    bottom: 0;
-    right: 0;
-    box-shadow: 0;
-    width: 100%;
-    transition: top 0.4s ease-in;
-    z-index: 1000;
-    /* Make sure the cart appears on top of other elements */
-    height: 0;
-    /* Initially set the height to 0 to hide the cart content */
-    overflow: scroll;
-  }
-
-  .cart-item-title {
-    font-size: 14px;
-  }
-
-  .cart_column.open-drawer {
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-    padding-top: 10px;
-    height: 30%;
-  }
-
-  .custom-card {
-    width: 309px !important;
-  }
-
-}
-
-@media all and (max-height:555px) {
+@media(max-height:555px) {
   #cartItemCount {
     width: 60px;
   }
@@ -1898,35 +1792,6 @@ input[type="checkbox"] {
   }
 }
 
-@media only screen and (max-width: 767px) {
-  #cartItemCount {
-    width: 108px;
-    height: 50px;
-    top: 17px;
-    right: 12px;
-  }
-
-  .cartfooter {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100% !important;
-    height: 138px;
-    background-color: #fff;
-  }
-
-  #totalMeals {
-    top: 33%;
-    right: 73px;
-    height: 0px;
-  }
-
-  .details {
-    display: none !important;
-  }
-
-}
-
 /* -------------------------------------------------Section 4 Media Queries---------------------------------------- */
 @media (max-width: 576px) {
   .button {
@@ -1935,15 +1800,5 @@ input[type="checkbox"] {
 
   .form-label {
     font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .order-summary-lg {
-    display: none;
-  }
-
-  .order-summary-sm {
-    display: block;
   }
 }
