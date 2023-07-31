@@ -69,7 +69,7 @@
 }
 
 /*--------------------------------------Meals Introduction Container-------------------------------------- */
-s .section-plans {
+.section-plans {
   background-color: var(--bg-color);
   height: 90vh;
   margin-top: 30px;
@@ -120,7 +120,6 @@ a:focus {
   border: none;
   border-radius: 0;
 }
-
 #accordion .panel-title a {
   display: block;
   padding: 15px 70px 15px 20px;
@@ -129,7 +128,6 @@ a:focus {
   font-weight: 700;
   letter-spacing: 1px;
   color: black;
-
 }
 #accordion .panel-title a:before,
 #accordion .panel-title a:after {
@@ -1499,7 +1497,7 @@ input[type="checkbox"] {
   }
 
   .forms {
-    width: 367px !important;
+    width: 351px !important;
     padding: 18px;
   }
 
@@ -1522,7 +1520,7 @@ input[type="checkbox"] {
   .container.summary_container {
     display: flex;
     flex-direction: column;
-    width: 373px !important;
+    width: 357px !important;
     padding-left: 0;
   }
 
