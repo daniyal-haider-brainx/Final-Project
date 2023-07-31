@@ -1571,9 +1571,7 @@ input[type="checkbox"] {
   }
 
   .delivery_date {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
+    padding: 10px 10px 0;
   }
 
   .deliverytext {
@@ -1679,9 +1677,7 @@ input[type="checkbox"] {
   }
 
   .delivery_date {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
+    padding: 10px 10px 0 10px;
   }
 
   .deliverytext {
