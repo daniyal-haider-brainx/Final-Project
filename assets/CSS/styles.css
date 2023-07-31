@@ -31,8 +31,28 @@
 .headingcheckout,
 .order-details_meals,
 .heading_checkout,
+.delivery-dates li,
+.cart-header,
+.delivery-text,
+.custom-card-title,
 .form-heading,
-.cart-header {
+.subtotal-value,
+.deliverytextcart,
+.cart-item-title,
+.cart-item-quantity button,
+#cartItemCount,
+.cart_summary,
+.total-price,
+.form-label,
+.selected-meal-title .selected-meal-quantity,
+#totalPrice,
+.checkout_totalcost,
+.cart-header,
+.checkout-heading,
+#selectedMealsTotalPrice,
+#shippingAmount,
+#taxAmount,
+#totalAmount {
   font-family: 'Roboto-bold';
 }
 
@@ -48,8 +68,8 @@
   font-family: "Roboto-Regular";
 }
 
-/*--------------------------------------Meals Introduction Container-------------------------------------- */s
-.section-plans {
+/*--------------------------------------Meals Introduction Container-------------------------------------- */
+s .section-plans {
   background-color: var(--bg-color);
   height: 90vh;
   margin-top: 30px;
@@ -61,16 +81,19 @@
   border-top: 1px solid var(--step-border);
   border-bottom: 1px solid var(--step-border);
   height: 80px;
-  pointer-events: none; 
+  pointer-events: none;
   cursor: pointer;
 }
-.step-steps .done{
+
+.step-steps .done {
   pointer-events: auto;
   cursor: pointer;
 }
-.header-list:hover{
+
+.header-list:hover {
   text-decoration: underline;
 }
+
 li.header-list.text-center.active {
   color: #3167FF;
 }
@@ -80,10 +103,11 @@ a:focus {
   text-decoration: none;
   outline: none;
 }
-.orderContaner
-{
+
+.orderContaner {
   width: 50%;
 }
+
 #accordion .panel {
   border: none;
   border-radius: 0;
@@ -107,7 +131,6 @@ a:focus {
   color: black;
 
 }
-
 #accordion .panel-title a:before,
 #accordion .panel-title a:after {
   content: "";
@@ -161,7 +184,6 @@ a:focus {
   padding: 0px !important;
 
 }
-
 .background {
   background-color: var(--bg-color);
 }
@@ -182,17 +204,18 @@ a:focus {
 .step-app {
   padding-top: 60px;
 }
-.error
-{
+
+.error {
   color: red;
 }
+
 .steps_container.active {
   color: blue;
 }
 
 /*--------------------------------------Logo-------------------------------------- */
 .svg_logo {
-  margin-top: 42px;
+  margin-top: 52px;
 }
 
 /*--------------------------------------Headings-------------------------------------- */
@@ -232,6 +255,7 @@ a:focus {
   padding: 0;
   display: inline-block;
 }
+
 /*--------------------------------------Angle Icon-------------------------------------- */
 .fa-angle-right {
   padding-left: 10px;
@@ -247,7 +271,6 @@ li.header-list.text-center.active {
 }
 
 /*--------------------------------------Next Button-------------------------------------- */
-
 .button_delivery,
 .button_submit,
 .button {
@@ -263,36 +286,40 @@ li.header-list.text-center.active {
   cursor: pointer;
   border-radius: none;
 }
-[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) {
 
   outline: none;
 }
-.button_submit
-{
+
+.button_submit {
   width: 100% !important;
 }
+
 .button:hover {
   transition: smooth;
   width: 400px;
 }
 
 /*--------------------------------------Meals Cards-------------------------------------- */
-.card {
+.container .card {
   background-color: none !important;
   border: none;
   cursor: pointer;
+  background: none;
 }
 .card_container {
   padding-right: 5px;
   padding-left: 5px;
 }
-
-.card:hover {
+.container .card:hover {
   transition: ease-in;
   transform: scaleY(10deg);
 }
-
-.card .cardmeals {
+.container .card .cardmeals {
   align-items: center;
   margin: 0;
   width: 250px;
@@ -303,22 +330,19 @@ li.header-list.text-center.active {
   background-color: none !important;
 }
 /*--------------------------------------Overlay Text Card------------------------------------- */
-.card .overlay-text {
+.container .card .overlay-text {
   position: absolute;
   top: 6px;
   left: 6px;
   padding: 4px;
   background-color: var(--overlay-bg);
   color: var(--textblack);
-  font-weight: bold;
   border-radius: 11px;
   font-size: 12px;
 }
-
 /*--------------------------------------Cards Text------------------------------------- */
-.card-text {
+.container .card-text {
   color: #000000;
-  font-weight: bold;
   font-size: 24px;
   text-align: center;
   margin: 0;
@@ -334,10 +358,6 @@ li.header-list.text-center.active {
   color: var(--alert-color);
 }
 
-.para_decoration {
-  font-weight: bold;
-}
-
 .subscript_Card {
   font-size: 14px;
   text-align: center;
@@ -347,12 +367,9 @@ li.header-list.text-center.active {
 .plan_text {
   font-size: 14px;
   display: flex !important;
-  font-weight: bold;
   margin: 0;
 }
-
 /*-------------------------------------------------------- Section 2----------------------------------------------------------------- */
-
 /*--------------------------------------Section 2 Headings------------------------------------- */
 .heading {
   font-size: 40px;
@@ -370,7 +387,6 @@ li.header-list.text-center.active {
   font-size: 48px;
   margin: auto;
 }
-
 /*--------------------------------------Delivery Dates Unordered ListView------------------------------------- */
 .delivery-dates {
   width: 350px;
@@ -387,10 +403,10 @@ li.header-list.text-center.active {
   padding: 0;
   margin: 0;
 }
+
 /*--------------------------------------Delivery Dates Items------------------------------------ */
 .delivery-dates li {
   background: var(--overlay-bg);
-  font-weight: bold;
   padding: 8px;
   position: relative;
   padding-left: 15px;
@@ -421,10 +437,6 @@ li.header-list.text-center.active {
 
 .delivery-dates li.selected~li:first-child:not(.selected) {
   border-left: 1px solid var(--border-color);
-}
-
-.delivery-dates li strong {
-  font-weight: bold;
 }
 
 /*-------------------------------------Delivery Dates Unordered ListView Content------------------------------------- */
@@ -462,7 +474,6 @@ li.header-list.text-center.active {
   font-size: 12px;
   color: var(--textblack);
   margin-top: 10px;
-  font-weight: bold;
   text-align: center;
 }
 
@@ -494,9 +505,7 @@ li.header-list.text-center.active {
   color: var(--container-bg);
   padding: 5px;
 }
-
 /*----------------------------------------------------Section 3-------------------------------------------------- */
-
 /*--------------------------------------Menu------------------------------------ */
 .menu_column {
   margin: 0;
@@ -509,7 +518,6 @@ li.header-list.text-center.active {
 }
 
 .checkout_heading {
-  font-weight: bold;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -550,7 +558,6 @@ li.header-list.text-center.active {
 
 .custom-card-title {
   font-size: 14px;
-  font-weight: bold;
   margin-bottom: 5px;
 }
 
@@ -638,9 +645,9 @@ li.header-list.text-center.active {
   padding: 10px;
   margin-bottom: 20px;
 }
+
 .cart-header {
   font-size: 18px;
-  font-weight: bold;
   margin-bottom: 10px;
 }
 
@@ -665,6 +672,7 @@ li.header-list.text-center.active {
   padding: 5px;
   font-size: 14px;
 }
+
 #totalQuantityCart {
   display: inline;
 }
@@ -689,7 +697,6 @@ li.header-list.text-center.active {
 }
 
 .subtotal-value {
-  font-weight: bold;
   color: var(--alert-color);
 }
 
@@ -698,10 +705,7 @@ li.header-list.text-center.active {
   border-radius: 10px;
   background-color: #ccc;
 }
-.deliverytextcart
-{
-  font-weight: bold;
-}
+
 .cart-icon-svg {
   fill: #000;
   width: 24px;
@@ -742,8 +746,6 @@ li.header-list.text-center.active {
 
 .cart-item-title {
   font-size: 16px;
-  font-weight: bold;
-
   margin-bottom: 5px;
 }
 
@@ -762,14 +764,12 @@ li.header-list.text-center.active {
 }
 
 /*--------------------------------------Total Items in Cart----------------------------------- */
-
 .cart-item-quantity {
   display: flex;
   flex-direction: column;
   align-items: center;
 
 }
-
 .details {
   display: none;
 }
@@ -785,13 +785,11 @@ li.header-list.text-center.active {
   background: #F3F3F3;
   height: 107px;
 }
-
 /*------------------------------------Increment/Decrement Button---------------------------------- */
 .cart-item-quantity button {
   display: flex;
   justify-content: flex-end;
   padding: 5px 10px;
-  font-weight: bold;
   cursor: pointer;
   margin: auto;
   background-color: none !important;
@@ -806,7 +804,6 @@ li.header-list.text-center.active {
 
 #cartItemCount {
   color: var(--alert-color);
-  font-weight: bold;
   display: inline-block;
   padding: 16px;
   border: 1px solid rgb(237, 237, 237);
@@ -829,7 +826,6 @@ li.header-list.text-center.active {
 .cart_summary {
   font-size: 14px;
   color: var(--textblack);
-  font-weight: bold;
 }
 
 .btn.focus,
@@ -844,7 +840,6 @@ li.header-list.text-center.active {
 
 .total-price {
   font-size: 16px;
-  font-weight: bold;
   margin-bottom: 10px;
 }
 
@@ -865,9 +860,7 @@ li.header-list.text-center.active {
   color: var(--alert-color);
   align-items: center;
 }
-
 /*----------------------------------------------Section 4-------------------------------------------- */
-
 /*--------------------------------------Checkout Form------------------------------------ */
 .forms {
   max-width: 600px;
@@ -881,8 +874,6 @@ li.header-list.text-center.active {
 }
 
 .form-label {
-
-  font-weight: bold;
   color: var(--label);
 }
 
@@ -909,7 +900,6 @@ input[type="checkbox"] {
 
 /*--------------------------------------Form Label----------------------------------- */
 .form-label {
-  font-weight: bold;
   color: var(--label);
   font-size: 16px;
 }
@@ -940,7 +930,6 @@ input[type="checkbox"] {
 
 .checkout-heading {
   font-size: 23px;
-  font-weight: bold;
   margin-bottom: 20px;
 }
 
@@ -965,7 +954,6 @@ input[type="checkbox"] {
 /*--------------------------------------Selected Meals Item Details------------------------------------ */
 .selected-meal-title {
   font-size: 14px;
-  font-weight: bold;
   margin-bottom: 5px;
 }
 
@@ -986,9 +974,9 @@ input[type="checkbox"] {
 
 .selected-meal-quantity {
   flex: 0 0 50px;
-  font-weight: bold;
   padding-left: 20px;
 }
+
 .selected-meal-img {
   width: 150px !important;
   height: 100px !important;
@@ -1056,10 +1044,6 @@ input[type="checkbox"] {
   background: none;
 }
 
-#totalPrice {
-  font-weight: bold;
-}
-
 /*------------------------------------Checkout Costs-------------------------------- */
 .checkout_cost {
   font-weight: lighter;
@@ -1084,7 +1068,6 @@ input[type="checkbox"] {
 
 .checkout_totalcost {
   font-size: 14px;
-  font-weight: bold;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
@@ -1099,6 +1082,7 @@ input[type="checkbox"] {
   font-size: 23px;
 
 }
+
 /*------------------------------------Checkout Layout--------------------------------- */
 .meals_checkout {
   display: flex;
@@ -1142,13 +1126,6 @@ input[type="checkbox"] {
 #totalAmount::before {
   content: '$';
 
-}
-
-#selectedMealsTotalPrice,
-#shippingAmount,
-#taxAmount,
-#totalAmount {
-  font-weight: bold;
 }
 
 /*------------------------------------Add Promo Code-------------------------------- */
@@ -1207,7 +1184,7 @@ input[type="checkbox"] {
   }
 
   .card-text {
-    font-size: 15px;
+    font-size: 15px !important;
   }
 
   .card-group {
@@ -1220,12 +1197,13 @@ input[type="checkbox"] {
     padding-left: 3px;
   }
 
-  .card {
+  .container .card {
     width: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     padding: 5px;
+    background: none;
   }
 
   .mealsheading {
@@ -1358,23 +1336,26 @@ input[type="checkbox"] {
   .custom-card {
     width: 239px !important;
   }
-.dateDisplay
-{
-  font-size: 12px;
-}
+
+  .dateDisplay {
+    font-size: 12px;
+  }
+
   .scrollcart {
     overflow-y: scroll;
     max-height: 300px;
 
   }
-  .button_cart 
-  {
-    width:100px;
+
+  .button_cart {
+    width: 100px;
   }
+
   .cart-item-img {
     height: 100px;
     width: 80px;
   }
+
   .cart-item-title {
     font-size: 9px;
   }
@@ -1520,7 +1501,7 @@ input[type="checkbox"] {
   }
 
   .forms {
-    width:397px !important;
+    width: 367px !important;
     padding: 18px;
   }
 
@@ -1543,7 +1524,7 @@ input[type="checkbox"] {
   .container.summary_container {
     display: flex;
     flex-direction: column;
-    width: 390px !important;
+    width: 373px !important;
     padding-left: 0;
   }
 
